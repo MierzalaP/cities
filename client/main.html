@@ -1,15 +1,26 @@
+
+
+<template name="main">
 <head>
   <title>cities</title>
+   <h1>DiscoverCities</h1>
 </head>
-
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
   {{>loginButtons }}
+     <header>
+        {{>navbar}}
+    </header>	
+ <main>
+        {{>home}}
+		{{>reset}}
+    </main>
+	
+	<footer>
+	{{>footer}}
+	</footer>
 </body>
-
-<template name="hello">
-Hello.
-My first template
 </template>
+
+
+
+
