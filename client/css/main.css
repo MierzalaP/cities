@@ -1,0 +1,27 @@
+body{background: #eeeeee;}
+header{
+  background:#FFF;
+  padding:10px 0;
+  max-height: 50px;
+}
+header ul{
+    display:inline-block;
+  list-style: none;
+  padding: 0;
+  margin:0;
+}
+header ul li{
+  display:inline-block;
+}
+header a{
+  color:#000;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+header a:hover{
+  color:#333;
+}
+.content-block{
+  background: #FFF;
+  padding: 1.25em 1.25em 1.5em;
+}
