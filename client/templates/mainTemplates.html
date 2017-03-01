@@ -14,18 +14,29 @@
 </template>
 
 <template name="home">
-<div class="container">
-	<p> Bring home memories from the most beautiful cities.</p>
-	{{#each city in cities}}
-			<a href="/city/{{city._id}}">
-				<figure>
-					<img src="{{city.picture}}" alt="">
-					<div class="nameHolder">{{city.name}}</div>
-				</figure>
-			</a>
-	{{/each}}
- {{>addCity}}
- </div>
+	<div class="banner">
+		<p> Bring home memories from the most beautiful cities.</p>
+		<img src="/images/Aix/sauveur2.jpg" alt="" class="background">
+	</div>
+	<div class="container">
+		<div class="content-block clearfix">
+			{{#each city in cities}}
+				<div class="col-md-4">
+					<a href="/city/{{city._id}}">
+						<figure>
+							<img src="{{city.picture}}" alt="">
+							<div class="nameHolder">{{city.name}}</div>
+						</figure>
+					</a>
+				</div>
+
+			{{/each}}
+		</div>
+		<div class="content-block">
+			{{>addCity}}
+		</div>
+
+	</div>
 </template>
 
 <template name="reset">
@@ -42,9 +53,9 @@
 
 <template name="addCity">
 	<form>
-	<input type="text" value="Name of the city">
-	<input type="text" value="Latitude">
-	<input type="text" value ="Longitude">
-	<input type="submit" value="submit">
+		<input type="text" value="Name of the city">
+		<input type="text" value="Latitude">
+		<input type="text" value ="Longitude">
+		<input type="submit" value="submit">
 	</form>
 </template>
