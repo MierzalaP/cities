@@ -1,0 +1,25 @@
+<template name="activity">
+	{{name}}
+	{{>activityImages}}
+	{{ description}}
+	{{>editor}}
+	{{>comments}}
+</template>
+
+<template name="activityImages">
+{{#each pics in pictures}}
+	<img src="{{pics}}" width="200">
+{{/each}}
+</template>
+
+<template name="editor">
+ {{editor.email}}
+</template>
+
+<template name="comments">
+	{{#each comment in comments}}
+		{{comment.user.email}}
+		{{comment.text}}
+	{{/each}}
+</template>
+

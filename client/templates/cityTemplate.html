@@ -2,6 +2,8 @@
      {{name}}
 	 {{description}}
 	 {{>addActivity}}
+	 {{>placesImage}}
+	 {{>eventsImage}}
 </template>
 
 <template name="addActivity">
@@ -13,4 +15,28 @@
 	<input type="text" placeholder ="End Date">
 	<input type="submit" value="submit">
 	</form>
+</template>
+
+<template name="placesImage">
+<h2>Places</h2>
+{{#each activity in activities}}
+	<a href="/activity/{{activity._id}}">
+		{{#if equals activity.nature "place"}}
+		<img src="{{activity.picture}}" width="200px">
+		<div class="nameHolder">{{activity.name}}</div>
+		{{/if}}
+	</a>
+{{/each}}
+</template>
+
+<template name="eventsImage">
+<h2>Events</h2>
+{{#each activity in activities}}
+	<a href="/activity/{{activity._id}}">
+		{{#if equals activity.nature "event"}}
+		<img src="{{activity.picture}}" width="200px">
+		<div class="nameHolder">{{activity.name}}</div>
+		{{/if}}
+	</a>
+{{/each}}
 </template>

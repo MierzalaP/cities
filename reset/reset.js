@@ -141,7 +141,7 @@ if (Meteor.isServer) {
                     long: "50.7264",
                     lat: "1.6147"
                 },
-                description: "",
+                description: "hello asdbassjdaskdbasd",
                 picture: '/images/Boulogne/centre.jpg',
                 activities: []
             };

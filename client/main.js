@@ -11,3 +11,14 @@ Template.home.helpers({
   		return Cities.find({});
   	}
 });
+
+Template.registerHelper('equals', function(a, b){
+	return a == b;
+});
+
+Template.addActivity.events({
+	'submit form' : function(){
+		console.log("Activity Added");
+		console.log(event.log);
+	}
+})
