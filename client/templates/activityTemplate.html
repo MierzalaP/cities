@@ -3,6 +3,7 @@
 	{{>activityImages}}
 	{{ description}}
 	{{>editor}}
+	{{>commentBox}}
 	{{>comments}}
 </template>
 
@@ -21,5 +22,12 @@
 		{{comment.user.email}}
 		{{comment.text}}
 	{{/each}}
+</template>
+
+<template name="commentBox">
+<form class="comment">
+<input type="text" name="comment" placeholder="comment">
+<input type="submit" name="submit" value="post">
+</form>
 </template>
 
