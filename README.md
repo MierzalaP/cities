@@ -1,5 +1,6 @@
 # DISCVR 
 
+TEAM 7
 Amar Ghale - Patryk Mierzala - Hadrien Briand
 
-https://sleepy-beach-52288.herokuapp.com/
+https://discvr-iutdkit.herokuapp.com/
