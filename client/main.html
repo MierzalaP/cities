@@ -1,26 +1,16 @@
-
-
 <template name="main">
-<head>
-  <title>cities</title>
-   <h1>DiscoverCities</h1>
-</head>
-<body>
-  {{>loginButtons }}
-     <header>
-        {{>navbar}}
-    </header>	
- <main>
-        {{>home}}
-		{{>reset}}
-    </main>
-	
-	<footer>
-	{{>footer}}
-	</footer>
-</body>
+    <head>
+        <title>Visiting Cities !</title>
+    </head>
+    <body>
+        <header>
+            {{>navbar}}
+        </header>
+        <main>
+            {{>yield}}
+        </main>
+        <footer>
+            {{>footer}}
+        </footer>
+    </body>
 </template>
-
-
-
-
