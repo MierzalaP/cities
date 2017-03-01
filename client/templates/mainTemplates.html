@@ -14,6 +14,7 @@
 </template>
 
 <template name="home">
+<div class="container">
 	<p> Bring home memories from the most beautiful cities.</p>
 	{{#each city in cities}}
 			<a href="/city/{{city._id}}">
@@ -23,9 +24,8 @@
 				</figure>
 			</a>
 	{{/each}}
-
-
-
+ {{>addCity}}
+ </div>
 </template>
 
 <template name="reset">
@@ -38,4 +38,13 @@
 
 <template name="notFound">
 	Ayyyy not found !!!
+</template>
+
+<template name="addCity">
+	<form>
+	<input type="text" value="Name of the city">
+	<input type="text" value="Latitude">
+	<input type="text" value ="Longitude">
+	<input type="submit" value="submit">
+	</form>
 </template>

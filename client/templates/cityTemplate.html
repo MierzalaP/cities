@@ -1,5 +1,16 @@
 <template name="city">
-  {{#each city in cities}}
-      {{city.name}}
-  {{/each}}
+     {{name}}
+	 {{description}}
+	 {{>addActivity}}
+</template>
+
+<template name="addActivity">
+	<form>
+	<input type="text" placeholder="Name">
+	<textarea placeholder="Description"></textarea>
+	<input type="text" placeholder ="URL">
+	<input type="text" placeholder ="Start Date">
+	<input type="text" placeholder ="End Date">
+	<input type="submit" value="submit">
+	</form>
 </template>
