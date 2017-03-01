@@ -10,10 +10,22 @@
 			<a href="/">About</a>
 		</li>
 	</ul>
+	{{>reset}}
 </template>
 
-<template name ="home">
+<template name="home">
 	<p> Bring home memories from the most beautiful cities.</p>
+	{{#each city in cities}}
+			<a href="/city/{{city._id}}">
+				<figure>
+					<img src="{{city.picture}}" alt="">
+					<div class="nameHolder">{{city.name}}</div>
+				</figure>
+			</a>
+	{{/each}}
+
+
+
 </template>
 
 <template name="reset">

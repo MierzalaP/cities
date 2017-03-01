@@ -14,3 +14,9 @@ Router.route('/city/:id', {
         // The value of this id is given by  this.params.id
     }
 });
+Router.route('/activity/:id', {
+    template: "city",
+    data: function () {
+
+    }
+});
