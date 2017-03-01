@@ -1,33 +1,50 @@
 body{background: #eeeeee;}
-header{
-  background:#FFF;
-  padding:10px 0;
-  max-height: 50px;
+
+
+
+
+/*HEADER*/
+
+.nav {
+  width: 100%;
+  background:#343434;
+  color: white;
+
 }
-header ul{
-    display:inline-block;
-  list-style: none;
-  padding: 0;
-  margin:0;
-}
-header ul li{
-  display:inline-block;
-}
-header a{
-  color:#000;
+
+.nav a{
+  color: white;
   text-decoration: none;
-  transition: all 0.3s ease;
+  float: right;
+  padding: 10px;
+  margin: 10px;
+  transition:0.5s ease;
+  font-family: 'Lato';
+  font-size: 1.8rem;
 }
-header a:hover{
-  color:#333;
+
+.nav a:hover {
+  color: #343434;
+  background: white;
+
 }
+
+
 .content-block{
   background: #FFF;
   padding: 1.25em 1.25em 1.5em;
   margin-top: 1.25em;
 }
+
+.content-block h2{
+  font-family: 'Nixie One';
+  padding-bottom: 20px;
+  margin-top: 0;
+}
 .banner{
   min-height: 500px;
+  height: 100vh;
+  background-color: black;
   background-size: cover;
   background-position: center center;
   width: 100%;
@@ -38,6 +55,8 @@ header a:hover{
   align-items: center;
   align-content: center;
   justify-content: center;
+  font-family: 'Nixie One';
+
 }
 .banner img{
   position: absolute;
@@ -45,11 +64,12 @@ header a:hover{
   top: 0;
   left: 0;
   z-index: 1;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 .banner>p{
   z-index: 2;
-  font-size: 30px;
+  font-size: 4rem;
+  font-weight: bold;
 }
 figure{
   position: relative;
@@ -79,4 +99,18 @@ figure .nameHolder{
   font-weight: bold;
   text-transform: uppercase;
   color:#FFF;
+  font-family: 'Nixie One';
+}
+
+
+.footer
+{
+    background: #343434;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    font-family: 'Lato';
 }

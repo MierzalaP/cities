@@ -1,25 +1,22 @@
 <template name="navbar">
-	<ul>
-		<li>
-			<a href="/">Home</a>
-		</li>
-		<li>
-			<a href="/">Charts</a>
-		</li>
-		<li>
-			<a href="/">About</a>
-		</li>
-	</ul>
-	{{>reset}}
+
+			<a href="#">Sign in</a>
+			<a href="#">About</a>
+			<a href="#">Home</a>
+
+
+
+
 </template>
 
 <template name="home">
 	<div class="banner">
 		<p> Bring home memories from the most beautiful cities.</p>
-		<img src="/images/Aix/sauveur2.jpg" alt="" class="background">
+		<img src="/images/homepage/banner.jpg" alt="" class="background">
 	</div>
 	<div class="container">
 		<div class="content-block clearfix">
+			<h2>Most popular cities</h2>
 			{{#each city in cities}}
 				<div class="col-md-4">
 					<a href="/city/{{city._id}}">
@@ -44,7 +41,9 @@
 </template>
 
 <template name ="footer">
+	<div class="footer">
 	© 2015 . All rights reserved. No part of this site may be reproduced without our written permission.
+</div>
 </template>
 
 <template name="notFound">
