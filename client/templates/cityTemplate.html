@@ -1,17 +1,17 @@
 <template name="city">
      {{name}}
-	 {{description}}
-	 {{>placesImage}}
-	 {{>eventsImage}}
-	 {{>addEvents}}
-	 {{>addPlace}}
-    {{>map}}
+  	 {{description}}
+  	 {{>placesImage}}
+  	 {{>eventsImage}}
+  	 {{>addEvents}}
+  	 {{>addPlace}}
+      {{>maps}}
 </template>
 
-<template name="map">
+<template name="maps">
   <div class="map-container">
-    {{> googleMap name="map" options=map}}
-  </div>
+      {{> googleMap name="maps" options=mapOptions}}
+    </div>
 </template>
 
 <template name="addPlace">
