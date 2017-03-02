@@ -18,7 +18,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 accounts-ui
 accounts-password
-dburles:google-maps
 chart:chart
 http
 autopublish
@@ -27,3 +26,4 @@ twbs:bootstrap@=3.3.5
 iron:router@=1.0.12
 tomi:upload-server
 tomi:upload-jquery@=2.2.0
+dburles:google-maps
