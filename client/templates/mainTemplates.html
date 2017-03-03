@@ -30,20 +30,23 @@
 
 			{{/each}}
 		</div>
+		{{#if currentUser}}
 		<div class="content-block">
 			{{>cityAdd}}
 		</div>
-
+	  {{/if}}
 	</div>
 </template>
 
 <template name="reset">
-	<button type ="botton">reset</button>
+	<button type ="botton" style="color:#333;">reset</button>
 </template>
 
 <template name ="footer">
 	<div class="footer">
-	© 2017  All rights reserved Hadrien & Patrick & Amar.
+	© 2017 - All rights reserved - Hadrien / Patrick / Amar
+	<br>{{>reset}}
+
 </div>
 </template>
 
@@ -52,7 +55,6 @@
 </template>
 
 <template name="cityAdd">
-    {{#if currentUser}}
 	<form>
 		<input type="text" placeholder="Name of the city" name="name">
 		<input type="text" placeholder="Latitude" name="lat">
@@ -61,5 +63,4 @@
 		<input type="submit" value="submit" id="submit">
 	</form>
     {{> upload_bootstrap }}
-    {{/if}}
 </template>
