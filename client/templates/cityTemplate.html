@@ -5,6 +5,7 @@
   	 {{>eventsImage}}
   	 {{>addActivity}}
       {{>maps}}
+      {{>charts}}
 </template>
 
 <template name="maps">
@@ -51,4 +52,7 @@
 		{{/if}}
 	</a>
 {{/each}}
+</template>
+<template name="charts">
+    <canvas id="myChart" width="1000px" height="400px" ></canvas>
 </template>
