@@ -16,76 +16,55 @@ Template.registerHelper('equals', function(a, b){
 	return a == b;
 });
 
-Template.addPlace.events({
-//ecouter l'evenement
-	"submit form" : function(ev){
-		ev.preventDefault();	
-		var city = {
-			name : $('#name').val(),
-			contry : $('#country').val(),
-			//coordinates[lat] : $('#latCity').val(),
-			//coordinates[long] : $('#logCity').val(),
-			description : $('#description').val()
-		};
+Template.cityAdd.events({
+    'submit form': function (event) {
+        event.preventDefault();
+        var city = {};
 
-		Meteor.call('insertCity', city);
-		return false;
-		//alert(w+' | '+x+' | '+c+' | '+v+' | '+b);
-	}
-//cities insert
-})
+        const target = event.target;
 
-Template.addEvents.events({
-//ecouter l'evenement
-	"submit form" : function(ev){
-		ev.preventDefault();	
-		var activity = {
-			name : $('#name').val(),
-			url : $('#url').val(),
-			startDate : $('#startDate').val(),
-			endDate : $('#endDate').val(),
-			description : $('#description').val()
-		};
+        city.name = target.name.value;
+        city.description = target.description.value;
+        city.coordinates = {
+            long : target.long.value,
+            lat : target.lat.value
+        }
+        city.user = {
+            _id : Meteor.user()._id,
+            email : Meteor.user().emails[0].address
+        }
 
-		Meteor.call('insertCity', city);
-		return false;
-		//alert(w+' | '+x+' | '+c+' | '+v+' | '+b);
-	}
-//cities insert
-})
+        // show the upload panel
+        $('.uploadPanel').fadeIn();
+        // hide the submit button
+        $('#submit').fadeOut();
+        // find the document corresponding to the user (his id is Meteor.userId())
 
-if (Meteor.isClient) {
-  Meteor.startup(function() {
-    GoogleMaps.load();
-  });
-}
 
-Template.map.onRendered(function() {
-  GoogleMaps.load();
-});
+        Cities.insert(city, function(err, objectId){
+            city._id = objectId;
+            Meteor.call("initUploadServerForCity", city);
+        });
 
-Template.map.helpers({
-  map: function() {
-    // Make sure the maps API has loaded
-    if (GoogleMaps.loaded()) {
-      // Map initialization options
-      return {
-        center: new google.maps.LatLng(-37.8136, 144.9631),
-        zoom: 8
-      };
     }
-  }
 });
 
-Template.map.onCreated(function() {
-  // We can use the `ready` callback to interact with the map API once the map is ready.
-  GoogleMaps.ready('map', function(map) {
-    // Add a marker to the map once it's ready
-    var marker = new google.maps.Marker({
-      position: map.options.center,
-      map: map.instance
-    });
-  });
+Template.commentBox.events({
+    'submit form#sectionAdd': function (event) {
+        event.preventDefault();
+        var activity = this;      
+        var comment = {};
+        const target = event.target;
+         comment.user = {
+            _id : Meteor.user()._id,
+            email : Meteor.user().emails[0].address
+        }   
+        comment.date = new Date();  
+        comment.text = target.comment.value;
+        Meteor.call("addComment", activity, comment);
+        $('#sectionAdd').fadeOut();
+        target.comment.value = "";
+    }
 });
 
 

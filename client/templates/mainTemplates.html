@@ -4,8 +4,8 @@
 
 			<ul>
 				<li>{{>loginButtons }}</li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Home</a></li>
+				<li><a href="/">About</a></li>
+				<li><a href="/">Home</a></li>
 			</ul>
 
 </template>
@@ -31,7 +31,7 @@
 			{{/each}}
 		</div>
 		<div class="content-block">
-			{{>addCity}}
+			{{>cityAdd}}
 		</div>
 
 	</div>
@@ -51,12 +51,15 @@
 	Ayyyy not found !!!
 </template>
 
-<template name="addCity">
+<template name="cityAdd">
+    {{#if currentUser}}
 	<form>
-		<input type="text" value="Name of the city">
-		<input type="text" value="Latitude">
-		<input type="text" value ="Longitude">
-		<input type="file"/>
-		<input type="submit" value="submit">
+		<input type="text" placeholder="Name of the city" name="name">
+		<input type="text" placeholder="Latitude" name="lat">
+		<input type="text" placeholder ="Longitude" name="long">
+         <textarea rows="4" cols="20" name="description"></textarea>
+		<input type="submit" value="submit" id="submit">
 	</form>
+    {{> upload_bootstrap }}
+    {{/if}}
 </template>
