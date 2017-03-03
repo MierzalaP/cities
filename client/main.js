@@ -114,7 +114,6 @@ Template.commentBox.events({
         comment.date = new Date();
         comment.text = target.comment.value;
         Meteor.call("addComment", activity, comment);
-        $('#sectionAdd').fadeOut();
         target.comment.value = "";
     }
 });
@@ -137,12 +136,12 @@ Template.likeButton.events({
             }
             console.log(check);
             if ( check ) {
-                Meteor.call("addLike", activity, user); 
+                Meteor.call("addLike", activity, user);
                 alert("liked");
             } else {
                 alert("already liked!");
             }
-             
+
         }
     }
     });
@@ -154,7 +153,7 @@ Template.likeButton.events({
     }
     return false;
     }
-    
+
 
 
 
@@ -208,7 +207,15 @@ Template.charts.onRendered(function () {
         data.datasets[1].data.push(d.main.temp_min);
         data.datasets[2].data.push(d.main.temp_max);
       }
-      new Chart(ctx).Line(data, Chart.defaults.global);
+      new Chart(ctx).Line(data, {
+        responsive: true,
+        maintainAspectRatio: true
+    });
     });
 
   });
+Template.activity.helpers({
+  	"firstPic" : function(){
+  		return Template.currentData().pictures[0];
+  	}
+});

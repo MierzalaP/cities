@@ -1,17 +1,47 @@
 <template name="activity">
-	{{name}}
+
+	<div class="banner-city" style="background-image:url('{{firstPic}}');">
+      <p> {{name}}</p>
+			{{>likeButton}}
+    </div>
+
+		<div class="container-block">
+		<div class="row">
+			<div class="col-md-12">
+
+					<div class="wrapper-city" style="height:auto;">
+							<h2>D e s c r i p t i o n</h2>
+							{{{description}}}
+							<div style="text-align:right; height:40px;border-top:1px solid #EEE; width:100%;">
+								Visit the website: <a href="{{url}}" style="font-weight:bold;">{{url}}</a>
+							</div>
+					</div>
+			</div>
+		</div>
+	</div>
 	{{>activityImages}}
-	{{ description}}
-	{{>editor}}
+{{>comments}}
 	{{>commentBox}}
-	{{>comments}}
-    {{>likeButton}}
+
 </template>
 
 <template name="activityImages">
+	<div class="container-block">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="wrapper-city">
+					<h2>P h o t o s</h2>
 {{#each pics in pictures}}
+<div class="col-md-4">
+
 	<img src="{{pics}}" width="200">
+
+</div>
 {{/each}}
+</div>
+</div>
+</div>
+</div>
 </template>
 
 <template name="editor">
@@ -19,27 +49,45 @@
 </template>
 
 <template name="comments">
-	{{#each comment in comments}}
-		{{comment.user.email}}
-		{{comment.text}}
-	{{/each}}
+	<div class="container-block">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="wrapper-activites">
+										<h2>C o m m e n t s</h2>
+						{{#each comment in comments}}
+						<div class="comment-box">
+							<div class="user">{{comment.user.email}}</div>
+							<p>{{comment.text}}</p>
+						</div>
+
+						{{/each}}
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 
 <template name="commentBox">
     <div class="commentsAdd">
-    {{#if currentUser}} 
-<form id="sectionAdd">
-    <textarea type="text" id="comment" name="comment" placeholder="comment"></textarea>
-<input type="submit" name="submit" value="post">
-</form>
-    {{/if}}
+    {{#if currentUser}}
+		<div class="container-block">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="wrapper-activites">
+							<form id="sectionAdd">
+							    <textarea type="text" id="comment" name="comment" placeholder="What do you think ?"></textarea>
+							<input type="submit" name="submit" value="post">
+							</form>
+
+</div>
+</div>
+</div>
+</div>
+{{/if}}
 </div>
 </template>
-
 <template name="likeButton">
-        {{#if currentUser}} 
+        {{#if currentUser}}
     <button id="like">Like</button>
     {{/if}}
 </template>
-
-

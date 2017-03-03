@@ -98,6 +98,22 @@ body{background: #eeeeee;}
   font-size: 4rem;
   font-weight: bold;
 }
+
+
+.banner-city{
+  background-size: cover;
+  background-position: center center;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: 'Nixie One';
+  font-size: 4rem;
+}
+
+
 figure{
   position: relative;
   overflow: hidden;
@@ -130,8 +146,85 @@ figure .nameHolder{
 }
 
 
-.footer
+
+
+
+/*WRAPPER CITY*/
+
+.container-block{
+  width: 80%;
+  height: auto;
+  margin: auto;
+  margin-top: 20px;
+}
+
+
+/*WRAPPER CITY*/
+
+.wrapper-city{
+
+  background: white;
+  margin-bottom: 20px;
+  position: relative;
+  font-family:'Lato';
+  font-size: 1.5rem;
+  line-height: 30px;
+  padding: 10px;
+  width: 100%;
+  margin:auto;
+  overflow: hidden;
+}
+.wrapper-map{
+
+  background: white;
+  margin-bottom: 20px;
+  height: 400px;
+  position: relative;
+  font-family:'Lato';
+  font-size: 1.5rem;
+  line-height: 30px;
+  padding: 10px;
+  width: 100%;
+  margin:auto;
+  overflow: hidden;
+}
+
+
+.wrapper-city img{
+  width: 100%;
+  height: 300px;
+
+}
+.wrapper-city h2
 {
+  font-family: 'Nixie One';
+  font-size: 2.2rem;
+  margin: 0;
+  padding: 10px;
+}
+
+.wrapper-activites{
+
+  background: white;
+  height: auto;
+  position: relative;
+
+}
+
+.wrapper-activites h2{
+  font-size: 3rem;
+  font-family: 'Nixie One';
+  padding-left: 10px;
+  padding-top: 10px;
+  margin:0;
+}
+.wrapper-activites p{
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  font-family: 'Lato';
+}
+
+.footer{
     background: #343434;
     height: 80px;
     display: flex;
@@ -195,5 +288,72 @@ input{
 .map-container {
   width: 800px;
   max-width: 100%;
-  height: 500px;
+  height: 380px;
+}
+
+.add{
+  width: 80%;
+  padding: 10px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: 'Lato';
+  background: white;
+
+
+}
+
+.add input:last-child{
+  margin-top: 10px;
+}
+
+.add input{
+
+  border:1px solid #ffffff;
+}
+.add form{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.uploadPanel
+{
+  margin-top: 10px;
+}
+
+.commentsAdd{
+  display: flex;
+  height: auto;
+}
+
+#sectionAdd{
+  display: flex;
+  padding: 10px;
+}
+
+#sectionAdd textarea{
+  width: 80%;
+    outline: none;
+    resize: none;
+    border:1px solid #eee;
+}
+
+#sectionAdd input[type="submit"]{
+  width: 20%;
+}
+canvas{
+    width: 100% !important;
+    height: auto !important;
+}
+.comment-box{
+  border-bottom:1px solid #eee;
+  padding: 20px;
+}
+.comment-box p{
+  font-size: 16px;
+  margin: 0;
+}
+.comment-box .user{
+  font-size: 12px;
+  font-weight: bold;
 }

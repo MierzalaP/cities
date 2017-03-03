@@ -1,58 +1,112 @@
 <template name="city">
-     {{name}}
-  	 {{description}}
-  	 {{>placesImage}}
-  	 {{>eventsImage}}
-  	 {{>addActivity}}
-      {{>maps}}
-      {{>charts}}
+    <div class="banner-city" style="background-image:url('{{picture}}');">
+        <p> {{name}}</p>
+    </div>
+    <div class="container-block">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="wrapper-city" style="height:400px;">
+                    <h2>D e s c r i p t i o n</h2>
+                    <div>
+                      {{{description}}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="wrapper-map">
+                    {{>maps}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{>charts}}
+    {{>placesImage}} {{>eventsImage}}
+
+    {{#if currentUser}}
+      {{>addActivity}}
+    {{/if}}
 </template>
 
 <template name="maps">
-  <div class="map-container">
-      {{> googleMap name="maps" options=mapOptions}}
+    <div class="map-container">
+        {{> googleMap name="maps" options=mapOptions}}
     </div>
 </template>
 
 <template name="addActivity">
-     {{#if currentUser}} 
-	<form>
-	<input type="text" placeholder="Name" id="name">
-	        Event<input class="nature" type="radio" name="nature" value="event" />
-        Place<input class="nature" type="radio" name="nature" value="place" />
-	<input id='url' type="text" placeholder='url'/>
-             {{> upload_bootstrap }}
-	<textarea placeholder="Description" id="description"></textarea>
-	<input type="submit" value="submit" class="submit" name="submit">
-	</form>
-
-    {{/if}}
+    <div class="add">
+        <form>
+            <input type="text" placeholder="Name" id="name">
+            <input type="text" placeholder="URL" id="url">
+            Event<input class="nature" type="radio" name="nature" value="event" />
+            Place<input class="nature" type="radio" name="nature" value="place" />
+            <input id='startDate' type="date" placeholder='Start Date' />
+            <input id='endDate' type="text" placeholder='EndDate' />
+            <textarea placeholder="Description" id="description"></textarea>
+            <input type="submit" value="submit" class="submit" name="submit"> {{> upload_bootstrap}}
+        </form>
+    </div>
 </template>
 
-
 <template name="placesImage">
-<h2>Places</h2>
-{{#each activity in activities}}
-	<a href="/activity/{{activity._id}}">
-		{{#if equals activity.nature "place"}}
-		<img src="{{activity.picture}}" width="200px">
-		<div class="nameHolder">{{activity.name}}</div>
-		{{/if}}
-	</a>
-{{/each}}
+    <div class="container-block">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="wrapper-city">
+                    <h2>P l a c e s</h2>
+                    {{#each activity in activities}}
+                      {{#if equals activity.nature "place"}}
+                          <div class="col-md-4">
+                          <a href="/activity/{{activity._id}}">
+
+                          <figure>
+                          <img src="{{activity.picture}}" width="200px">
+                          <div class="nameHolder">{{activity.name}}</div>
+                          </figure>
+                          </a>
+                        </div>
+                      {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <template name="eventsImage">
-<h2>Events</h2>
-{{#each activity in activities}}
-	<a href="/activity/{{activity._id}}">
-		{{#if equals activity.nature "event"}}
-		<img src="{{activity.picture}}" width="200px">
-		<div class="nameHolder">{{activity.name}}</div>
-		{{/if}}
-	</a>
-{{/each}}
+    <div class="container-block">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="wrapper-city">
+                    <h2>E v e n t s</h2>
+                    {{#each activity in activities}}
+                      {{#if equals activity.nature "event"}}
+                      <div class="col-md-4">
+                          <a href="/activity/{{activity._id}}">
+                            <figure>
+                            <img src="{{activity.picture}}" width="200px">
+                            <div class="nameHolder">{{activity.name}}</div>
+                            </figure>
+
+                        </a>
+                      </div>
+                      {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
+
 <template name="charts">
-    <canvas id="myChart" width="1000px" height="400px" ></canvas>
+  <div class="container-block">
+      <div class="row">
+          <div class="col-md-12">
+            <div class="wrapper-city">
+            <h2>T e m p e r a t u r e</h2>
+            <canvas id="myChart" width="1000px" height="400px" ></canvas>
+          </div>
+      </div>
+  </div>
+</div>
 </template>
