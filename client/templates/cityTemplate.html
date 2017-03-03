@@ -3,8 +3,7 @@
   	 {{description}}
   	 {{>placesImage}}
   	 {{>eventsImage}}
-  	 {{>addEvents}}
-  	 {{>addPlace}}
+  	 {{>addActivity}}
       {{>maps}}
 </template>
 
@@ -14,28 +13,21 @@
     </div>
 </template>
 
-<template name="addPlace">
+<template name="addActivity">
+     {{#if currentUser}} 
 	<form>
 	<input type="text" placeholder="Name" id="name">
-	<input id='latitude' type="text" placeholder='Latitude'/>
-	<input id='longtitude' type="text" placeholder='Longitude'/>
+	        Event<input class="nature" type="radio" name="nature" value="event" />
+        Place<input class="nature" type="radio" name="nature" value="place" />
+	<input id='url' type="text" placeholder='url'/>
+             {{> upload_bootstrap }}
 	<textarea placeholder="Description" id="description"></textarea>
-	<input type="files"/>
 	<input type="submit" value="submit" class="submit" name="submit">
 	</form>
+
+    {{/if}}
 </template>
 
-<template name="addEvents">
-	<form>
-	<input type="text" placeholder="Name" id="name">
-	<input type="text" placeholder ="URL" id="url">
-	<input id='startDate' type="date" placeholder='Start Date'/>
-	<input id='endDate' type="text" placeholder='EndDate'/>
-	<textarea placeholder="Description" id="description"></textarea>
-	<input type="files"/>
-	<input type="submit" value="submit" class="submit" name="submit">
-	</form>
-</template>
 
 <template name="placesImage">
 <h2>Places</h2>

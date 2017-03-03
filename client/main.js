@@ -49,6 +49,58 @@ Template.cityAdd.events({
     }
 });
 
+//Template.addPlace.events({
+//    'submit form': function (event) {
+//        event.preventDefault();
+//        var place = {};
+//
+//        const target = event.target;
+//
+//        place.name = target.name.value;
+//        place.description = target.description.value;
+//        place.nature = target.nature.value;
+//        place.url = target.url.value;
+//        place.user = {
+//            _id : Meteor.user()._id,
+//            email : Meteor.user().emails[0].address
+//        }
+//         place.comments = [];
+//        place.editor = "TODO";
+//        place.pictures = [];
+//        place.like = 0;
+//        place.usersLiking = [];
+//        $('.uploadPanel').fadeIn();
+//        $('#submit').fadeOut();
+//        Activities.insert(place, function(err, objectId){
+//            place._id = objectId;
+//            Meteor.call("initUploadServerForPlace", place);      console.log("done");
+//        });
+//
+//    }
+//});
+Template.addActivity.events({
+    'submit form': function (event) {
+        console.log("working");
+        event.preventDefault();
+const target = event.target;
+        var city;
+        var activity = {};
+        activity.name = target.name.value;
+        activity.description = target.description.value;
+        activity.nature = $('form .nature:checked').val();
+
+Cities.update({_id : Template.currentData()._id}, { $push :{activities: activity}});
+
+Activities.insert(activity, function(err, objectId){
+            activity._id = objectId;
+     Meteor.call("initUploadServerForActivity", city, activity);
+        });
+
+    },
+});
+
+
+
 Template.commentBox.events({
     'submit form#sectionAdd': function (event) {
         event.preventDefault();
@@ -66,6 +118,44 @@ Template.commentBox.events({
         target.comment.value = "";
     }
 });
+
+Template.likeButton.events({
+    'click #like' : function(){
+        var user = isConnected();
+        if(user != null) {
+            user = Meteor.user();
+            var activity = this;
+            activity.usersLiking =[];
+            console.log(activity);
+            if ( activity.usersLiking != null ) {
+                console.log(activity.usersLiking);
+                var check = !activity.usersLiking.some(function(e){
+                    return e == user._id;
+                })
+            } else {
+                var check = true;
+            }
+            console.log(check);
+            if ( check ) {
+                Meteor.call("addLike", activity, user); 
+                alert("liked");
+            } else {
+                alert("already liked!");
+            }
+             
+        }
+    }
+    });
+
+    function isConnected() {
+    var user = Meteor.user();
+    if (user != null) {
+        return true;
+    }
+    return false;
+    }
+    
+
 
 
 

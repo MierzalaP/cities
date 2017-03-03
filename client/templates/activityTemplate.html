@@ -5,6 +5,7 @@
 	{{>editor}}
 	{{>commentBox}}
 	{{>comments}}
+    {{>likeButton}}
 </template>
 
 <template name="activityImages">
@@ -34,4 +35,11 @@
     {{/if}}
 </div>
 </template>
+
+<template name="likeButton">
+        {{#if currentUser}} 
+    <button id="like">Like</button>
+    {{/if}}
+</template>
+
 
